@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iqmal Aprizal — CS & Operations Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2A4A;--navy-d:#0F1B30;--teal:#0F6E56;--teal-m:#1D9E75;--teal-l:#E1F5EE;--teal-p:#F0FAF6;--gold:#C9933A;--gold-l:#FDF3E3;--purple:#7C3AED;--purple-l:#EDE9FE;--gray-l:#F6F5F2;--border:#E4E2DC;--white:#FFF;--text:#1A1917;--muted:#6B6966;--fd:'Sora',sans-serif;--fb:'Inter',sans-serif;--r:10px;--r-lg:14px;--sh:0 2px 12px rgba(0,0,0,.07);--sh-md:0 4px 24px rgba(0,0,0,.10)}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--text);font-size:14px;line-height:1.6}
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.nav-brand{font-family:var(--fd);font-weight:700;font-size:14px;color:var(--navy);text-decoration:none}
+.nav-links{display:flex}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;padding:0 12px;height:54px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-m);border-bottom-color:var(--teal-m)}
+.hero{background:var(--navy-d);padding:64px 28px 56px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 110%,rgba(15,110,86,.22),transparent);pointer-events:none}
+.hero-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 168px;gap:44px;align-items:center;position:relative;z-index:1}
+.hero-chip{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--teal-m);border:1px solid rgba(29,158,117,.4);padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.hero h1{font-family:var(--fd);font-size:clamp(26px,3.5vw,44px);font-weight:700;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--teal-m)}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.5);max-width:460px;line-height:1.75;margin-bottom:24px}
+.hero-stats{display:flex;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.04);max-width:420px;margin-bottom:22px}
+.hero-stat{flex:1;padding:14px 10px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.hero-stat:last-child{border-right:none}
+.hstat-v{font-family:var(--fd);font-size:20px;font-weight:700;color:#fff;line-height:1}
+.hstat-v small{font-size:13px;color:var(--teal-m)}
+.hstat-l{font-size:10px;color:rgba(255,255,255,.38);margin-top:4px;line-height:1.3}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:10px 20px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;transition:.15s}
+.btn-p{background:var(--teal-m);color:#fff}.btn-p:hover{background:var(--teal);transform:translateY(-1px)}
+.btn-g{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.15)}.btn-g:hover{background:rgba(255,255,255,.14)}
+.hero-photo{width:168px;height:200px;border-radius:12px;overflow:hidden;border:3px solid rgba(29,158,117,.45);flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+section{padding:60px 28px}
+.container{max-width:880px;margin:0 auto}
+.sec-eye{font-size:10px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--teal-m);margin-bottom:6px}
+.sec-title{font-family:var(--fd);font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--navy);letter-spacing:-.5px;margin-bottom:32px;line-height:1.2}
+.divider{border:none;border-top:1px solid var(--border)}
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mc{background:var(--gray-l);border:1px solid var(--border);border-radius:var(--r);padding:18px 14px;text-align:center;transition:.2s;cursor:default}
+.mc:hover{border-color:var(--teal-m);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.mc.hl{background:var(--teal-l);border-color:rgba(29,158,117,.35)}
+.mc-val{font-family:var(--fd);font-size:24px;font-weight:700;color:var(--navy);line-height:1}
+.mc.hl .mc-val{color:var(--teal)}
+.mc-lbl{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4}
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:1px;background:var(--border)}
+.tl-item{display:flex;gap:22px;margin-bottom:32px}
+.tl-dot{width:29px;height:29px;flex-shrink:0;background:var(--white);border:2px solid var(--teal-m);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.tl-dot-i{width:8px;height:8px;background:var(--teal-m);border-radius:50%}
+.tl-dot.dim{border-color:var(--border)}.tl-dot.dim .tl-dot-i{background:var(--muted)}
+.tl-content{flex:1;padding-top:4px}
+.tl-period{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);margin-bottom:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tl-title{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:2px;line-height:1.3}
+.tl-org{font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic}
+.tl-ul{list-style:none}
+.tl-ul li{font-size:13px;color:var(--text);padding:2px 0 2px 15px;position:relative;line-height:1.6}
+.tl-ul li::before{content:'→';position:absolute;left:0;color:var(--teal-m);font-size:11px;top:4px}
+.chip{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:4px}
+.chip-gold{background:var(--gold-l);color:var(--gold)}.chip-purple{background:var(--purple-l);color:var(--purple)}.chip-navy{background:#E8EDF5;color:var(--navy)}
+.tab-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:20px;background:var(--gray-l)}
+.tab-btn{flex:1;padding:10px 8px;font-size:12px;font-weight:500;color:var(--muted);background:transparent;border:none;cursor:pointer;transition:.15s;border-right:1px solid var(--border)}
+.tab-btn:last-child{border-right:none}
+.tab-btn.active{background:var(--navy);color:#fff;font-weight:600}
+.tab-btn:hover:not(.active){background:var(--border);color:var(--text)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+.lb-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh)}
+.lb-head{background:var(--navy);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lb-head-title{font-size:13px;font-weight:600;color:#fff}
+.lb-head-sub{font-size:10px;color:rgba(255,255,255,.45)}
+.lb-badge{font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;background:rgba(29,158,117,.3);color:var(--teal-m)}
+.lb-ctrl{padding:10px 16px;background:var(--gray-l);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lb-search{font-size:12px;padding:6px 12px;border:1px solid var(--border);border-radius:6px;outline:none;background:var(--white);color:var(--text);flex:1;min-width:160px}
+.lb-search:focus{border-color:var(--teal-m)}
+.lb-sel{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;outline:none;background:var(--white);color:var(--text);cursor:pointer}
+.lb-sel:focus{border-color:var(--teal-m)}
+.lb-stats{display:flex;gap:16px;padding:9px 16px;background:#F9F8F6;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.lb-si{font-size:11px;color:var(--muted)}
+.lb-si b{color:var(--navy);font-weight:600}
+.lb-tw{overflow-x:auto}
+.lb-t{width:100%;border-collapse:collapse;font-size:12px}
+.lb-t th{background:var(--gray-l);padding:9px 12px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}
+.lb-t td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.lb-t tr:last-child td{border-bottom:none}
+.lb-t tr:hover td{background:var(--teal-p)}
+.lb-t tr.hr{display:none}
+.st{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.st-ok{background:#D1FAE5;color:#065F46}.st-es{background:#FEF3C7;color:#92400E}.st-pr{background:#DBEAFE;color:#1E40AF}
+.lb-ft{padding:10px 16px;font-size:11px;color:var(--muted);text-align:center;border-top:1px solid var(--border);font-style:italic;background:var(--gray-l)}
+.lb-empty{text-align:center;padding:32px;color:var(--muted);font-size:13px;display:none}
+.crm-section{background:var(--navy-d)}
+.crm-section .sec-eye{color:var(--teal-m)}
+.crm-section .sec-title{color:#fff}
+.crm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.crm-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:22px 18px;text-align:center;transition:.2s;cursor:default}
+.crm-card:hover{border-color:rgba(29,158,117,.5);background:rgba(29,158,117,.08);transform:translateY(-3px)}
+.crm-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px}
+.crm-name{font-family:var(--fd);font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+.crm-role{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--teal-m);margin-bottom:12px}
+.crm-where{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:10px;font-style:italic}
+.crm-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+.crm-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:12px}
+.crm-tag{font-size:10px;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12)}
+.crm-cmp{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);overflow:hidden}
+.crm-cmp-h{background:rgba(255,255,255,.08);padding:12px 18px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px}
+.crm-cmp-h div{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);text-align:center}
+.crm-cmp-h div:first-child{text-align:left;color:rgba(255,255,255,.35)}
+.crm-row{padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.06);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;align-items:center}
+.crm-row:last-child{border-bottom:none}
+.crm-row:hover{background:rgba(255,255,255,.03)}
+.crm-feat{font-size:12px;color:rgba(255,255,255,.55)}
+.crm-cell{text-align:center;font-size:13px}
+.crm-yes{color:var(--teal-m)}.crm-no{color:rgba(255,255,255,.2)}
+.chat-section{background:var(--teal-p)}
+.chat-tab-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chat-tab-btn{font-size:12px;font-weight:500;padding:7px 16px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;transition:.15s}
+.chat-tab-btn.active,.chat-tab-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chat-pane{display:none}.chat-pane.active{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chat-win{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh)}
+.chat-hd{background:var(--navy);padding:12px 14px;display:flex;align-items:center;gap:10px}
+.chat-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.chat-ttl{font-size:12px;font-weight:600;color:#fff}
+.chat-sub{font-size:10px;color:rgba(255,255,255,.4)}
+.chat-ctx{font-size:11px;color:var(--muted);padding:8px 14px;background:#F9F8F6;border-bottom:1px solid var(--border);font-style:italic}
+.chat-bd{padding:14px;display:flex;flex-direction:column;gap:9px;max-height:280px;overflow-y:auto}
+.msg{display:flex;flex-direction:column;max-width:86%}
+.msg.them{align-self:flex-start}.msg.me{align-self:flex-end;align-items:flex-end}
+.msg-sn{font-size:10px;font-weight:600;color:var(--muted);margin-bottom:2px}
+.msg-bb{font-size:12px;line-height:1.55;padding:8px 12px;border-radius:10px}
+.msg.them .msg-bb{background:var(--gray-l);color:var(--text);border-radius:2px 10px 10px 10px}
+.msg.me .msg-bb{background:var(--teal-m);color:#fff;border-radius:10px 2px 10px 10px}
+.msg-tm{font-size:9px;color:var(--muted);margin-top:2px}
+.chat-ft{font-size:11px;color:var(--muted);text-align:center;padding:9px 14px;border-top:1px solid var(--border);font-style:italic;background:#FAFAF9}
+.rv-section{background:var(--navy-d)}
+.rv-section .sec-eye{color:var(--teal-m)}
+.rv-section .sec-title{color:#fff}
+.rv-filter{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:22px}
+.rv-btn{font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:.15s}
+.rv-btn.active,.rv-btn:hover{background:var(--teal-m);border-color:var(--teal-m);color:#fff}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px}
+.rv-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:15px;transition:.15s}
+.rv-card:hover{border-color:rgba(29,158,117,.4);background:rgba(29,158,117,.06)}
+.rv-card.hidden{display:none}
+.stars{color:#F59E0B;font-size:11px;margin-bottom:7px}
+.rv-txt{font-size:13px;color:rgba(255,255,255,.82);line-height:1.6;margin-bottom:9px;font-style:italic}
+.rv-det{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5;border-top:1px solid rgba(255,255,255,.08);padding-top:8px}
+.rv-meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.rv-buyer{font-size:11px;font-weight:600;color:var(--teal-m)}
+.rv-date{font-size:10px;color:rgba(255,255,255,.3)}
+.rv-cat{display:inline-block;margin-top:6px;font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:rgba(29,158,117,.15);color:var(--teal-m)}
+.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.sk-group{background:var(--gray-l);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.sk-title{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.sk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.sk-tag{font-size:11px;padding:4px 10px;background:var(--white);border:1px solid var(--border);border-radius:6px;color:var(--text)}
+.pak-box{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh)}
+.pak-grid{display:grid;grid-template-columns:1fr 1fr}
+.pak-l{background:var(--navy);padding:26px}
+.pak-r{background:var(--gray-l);padding:26px}
+.pak-lbl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:3px}
+.pak-lbl-d{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.pak-val{font-size:13px;color:#fff;font-weight:500;margin-bottom:14px;line-height:1.4}
+.pak-val-d{font-size:13px;color:var(--text);font-weight:500;margin-bottom:14px;line-height:1.4}
+.pak-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.2);border:1px solid rgba(29,158,117,.4);color:var(--teal-m);font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;margin-top:4px}
+.pak-q{font-size:12px;color:var(--muted);font-style:italic;line-height:1.7;border-left:3px solid var(--teal-m);padding-left:12px;margin:12px 0}
+.pak-note{background:var(--teal-l);border:1px solid rgba(15,110,86,.2);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--teal);line-height:1.5}
+.ct-section{background:var(--navy-d);text-align:center}
+.ct-section .sec-title{color:#fff}
+.avail-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.15);border:1px solid rgba(29,158,117,.3);color:var(--teal-m);font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--teal-m);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.ct-grid{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn-ct-p{background:var(--teal-m);color:#fff}.btn-ct-p:hover{background:var(--teal)}
+.btn-ct-s{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}.btn-ct-s:hover{background:rgba(255,255,255,.14)}
+footer{padding:18px 28px;text-align:center;font-size:11px;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:700px){.hero-inner,.pak-grid,.chat-pane.active{grid-template-columns:1fr}.hero-photo{width:110px;height:132px;margin:0 auto}.mc-grid,.crm-grid,.sk-grid{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
+@media(prefers-reduced-motion:reduce){*,.avail-dot{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="#">Iqmal Aprizal</a>
+  <div class="nav-links">
+    <a href="#metrics">Pencapaian</a><a href="#experience">Pengalaman</a><a href="#logbook">Logbook</a><a href="#crm">CRM</a><a href="#chat">Korespondensi</a><a href="#reviews">Ulasan</a><a href="#contact">Kontak</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-chip">Customer Service &amp; Operations Specialist</div>
+      <h1>Iqmal <em>Aprizal</em></h1>
+      <p class="hero-sub">5 tahun di ekosistem digital marketplace — volume chat tinggi, transaksi lintas negara, dan operasional dua unit bisnis secara paralel.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hstat-v">&gt;300<small>/hr</small></div><div class="hstat-l">chat / hari</div></div>
+        <div class="hero-stat"><div class="hstat-v">35<small>+</small></div><div class="hstat-l">ulasan EpicNPC</div></div>
+        <div class="hero-stat"><div class="hstat-v">0</div><div class="hstat-l">dispute</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-p">Hubungi Saya →</a>
+        <a href="#logbook" class="btn btn-g">Lihat Logbook</a>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="data:image/jpeg;base64,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" alt="Iqmal Aprizal"></div>
+  </div>
+</section>
+
+<section id="metrics">
+  <div class="container">
+    <div class="sec-eye">Pencapaian Terukur</div>
+    <div class="sec-title">Angka yang berbicara sendiri</div>
+    <div class="mc-grid">
+      <div class="mc hl"><div class="mc-val">&gt;300</div><div class="mc-lbl">chat dikelola per hari saat peak hour</div></div>
+      <div class="mc hl"><div class="mc-val">35+</div><div class="mc-lbl">ulasan positif terverifikasi (EpicNPC)</div></div>
+      <div class="mc hl"><div class="mc-val">0</div><div class="mc-lbl">dispute / sengketa sepanjang karier</div></div>
+      <div class="mc"><div class="mc-val">&lt;5 mnt</div><div class="mc-lbl">rata-rata response time peak hour</div></div>
+      <div class="mc"><div class="mc-val">~100</div><div class="mc-lbl">pesanan lintas negara (AS, EU, SEA)</div></div>
+      <div class="mc"><div class="mc-val">5.000+</div><div class="mc-lbl">ulasan bintang 5 kontribusi tim (Buyrrier)</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="experience">
+  <div class="container">
+    <div class="sec-eye">Riwayat Kerja</div>
+    <div class="sec-title">Pengalaman formal &amp; freelance internasional</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-i"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Jul 2025 – Mei 2026 <span class="chip chip-gold">Formal · Paklaring Tersedia</span></div>
+          <div class="tl-title">Admin Customer Service</div>
+          <div class="tl-org">CV Point Gamers Indonesia — PT Point Digital Indonesia, Tangerang</div>
+          <ul class="tl-ul">
+            <li>Verifikasi spesifikasi &amp; serah-terima virtual goods untuk mencegah kegagalan transaksi</li>
+            <li>Panduan step-by-step penyelesaian kendala akses login secara empatik kepada pelanggan</li>
+            <li>Screening keamanan aset digital sebelum dirilis ke pembeli guna menekan angka retur</li>
+            <li>Penggunaan aktif CRM Barantum dan Koala Plus untuk manajemen tiket harian</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-i"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Okt 2023 – Apr 2026 <span class="chip chip-gold">Formal · Paralel</span></div>
+          <div class="tl-title">Customer Service Specialist</div>
+          <div class="tl-org">Toko Valorant — PT Point Digital Indonesia, Tangerang</div>
+          <ul class="tl-ul">
+            <li>Mengelola lalu lintas pesanan tinggi dengan standar respons cepat untuk menjaga retensi</li>
+            <li>Penanganan komplain sebagai prioritas harian untuk memulihkan kepercayaan konsumen</li>
+            <li>Rekap harian arus serah-terima produk &amp; kas ke Google Sheets secara terstruktur</li>
+            <li>Penggunaan Mekari Qontak untuk tracking status order dan eskalasi tiket</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-i"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Agt 2021 – Okt 2023 <span class="chip chip-purple">Freelance Mandiri · Internasional</span></div>
+          <div class="tl-title">Digital Goods Specialist</div>
+          <div class="tl-org">EpicNPC International Forum — Cross-border marketplace</div>
+          <ul class="tl-ul">
+            <li>~100 pesanan selesai bagi klien dari Amerika Serikat, Eropa, dan Asia Tenggara</li>
+            <li>Seluruh korespondensi, negosiasi, dan penanganan komplain dalam Bahasa Inggris</li>
+            <li>35+ ulasan positif terverifikasi — reputasi dibangun secara mandiri tanpa tim</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dim"><div class="tl-dot-i"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Feb 2021 – Agt 2021 <span class="chip chip-navy">Formal</span></div>
+          <div class="tl-title">E-Commerce CS Associate</div>
+          <div class="tl-org">Buyrrier</div>
+          <ul class="tl-ul">
+            <li>Menjawab pertanyaan produk dan panduan checkout bagi konsumen baru</li>
+            <li>Kontribusi pada akumulasi 5.000+ ulasan Bintang 5 dari pelanggan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="logbook">
+  <div class="container">
+    <div class="sec-eye">Rekam Kerja Harian</div>
+    <div class="sec-title">Logbook operasional tiga periode kerja</div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('lb','toko',this)">🎮 Toko Valorant</button>
+      <button class="tab-btn" onclick="switchTab('lb','point',this)">⚡ The Pointgamers</button>
+      <button class="tab-btn" onclick="switchTab('lb','epic',this)">🌏 EpicNPC Freelance</button>
+    </div>
+    <div id="lb-toko" class="tab-pane active">
+      <div class="lb-wrap">
+        <div class="lb-head"><div><div class="lb-head-title">Logbook Harian — Toko Valorant</div><div class="lb-head-sub">Okt 2023 – Apr 2026 · CRM: Mekari Qontak</div></div><div class="lb-badge">CS Specialist</div></div>
+        <div class="lb-ctrl">
+          <input class="lb-search" type="text" placeholder="Cari layanan, tindakan..." oninput="filterLb('t1',this.value,document.getElementById('f1').value)">
+          <select id="f1" class="lb-sel" onchange="filterLb('t1',this.previousElementSibling.value,this.value)"><option value="">Semua Status</option><option>Selesai</option><option>Eskalasi</option><option>Diproses</option></select>
+        </div>
+        <div class="lb-stats"><span class="lb-si">Total: <b>8</b></span><span class="lb-si">Selesai: <b style="color:var(--teal)">6</b></span><span class="lb-si">Eskalasi: <b style="color:var(--gold)">1</b></span><span class="lb-si">Diproses: <b style="color:#1E40AF">1</b></span></div>
+        <div class="lb-tw"><table class="lb-t" id="t1">
+          <thead><tr><th>Tanggal</th><th>ID Order</th><th>Layanan</th><th>Jenis Interaksi</th><th>Tindakan CS</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>14 Jan 2025</td><td>#VL-2841</td><td>Top-up VP 1.000</td><td>Komplain — produk belum masuk</td><td>Verifikasi transaksi, konfirmasi ID akun, re-deliver 15 mnt</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>14 Jan 2025</td><td>#VL-2842</td><td>Bundle Skin Premium</td><td>Pesanan masuk — normal</td><td>Verifikasi akun, screening, serah-terima selesai</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>14 Jan 2025</td><td>#VL-2843</td><td>Top-up VP 2.800</td><td>Kendala login — akun terkunci</td><td>Panduan reset password via email recovery, monitoring 30 mnt</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>15 Jan 2025</td><td>#VL-2849</td><td>Top-up VP 2.800</td><td>Komplain — salah nominal terkirim</td><td>Verifikasi log transaksi, koordinasi internal, proses refund</td><td><span class="st st-es">Eskalasi</span></td></tr>
+            <tr><td>15 Jan 2025</td><td>#VL-2851</td><td>Bundle Agent + VP</td><td>Pesanan masuk — normal</td><td>Screening keamanan, serah-terima, follow-up feedback</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>16 Jan 2025</td><td>#VL-2860</td><td>Top-up VP 1.000</td><td>Pertanyaan pre-order</td><td>Jelaskan SLA, konfirmasi metode pembayaran</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>16 Jan 2025</td><td>#VL-2863</td><td>Bundle Skin Rare</td><td>Komplain — akun suspended pasca top-up</td><td>Investigasi log, koordinasi teknis, hubungi Riot support</td><td><span class="st st-pr">Diproses</span></td></tr>
+            <tr><td>17 Jan 2025</td><td>#VL-2870</td><td>Top-up VP 500</td><td>Pesanan masuk — normal</td><td>Verifikasi cepat, serah-terima, konfirmasi penerimaan</td><td><span class="st st-ok">Selesai</span></td></tr>
+          </tbody>
+        </table><div class="lb-empty" id="e1">Tidak ada data yang sesuai.</div></div>
+        <div class="lb-ft">Format rekap harian Toko Valorant · Dikelola via Google Sheets &amp; Mekari Qontak CRM</div>
+      </div>
+    </div>
+    <div id="lb-point" class="tab-pane">
+      <div class="lb-wrap">
+        <div class="lb-head"><div><div class="lb-head-title">Logbook Harian — The Pointgamers</div><div class="lb-head-sub">Jul 2025 – Mei 2026 · CRM: Barantum &amp; Koala Plus</div></div><div class="lb-badge">Admin CS</div></div>
+        <div class="lb-ctrl">
+          <input class="lb-search" type="text" placeholder="Cari produk, tindakan..." oninput="filterLb('t2',this.value,document.getElementById('f2').value)">
+          <select id="f2" class="lb-sel" onchange="filterLb('t2',this.previousElementSibling.value,this.value)"><option value="">Semua Status</option><option>Selesai</option><option>Eskalasi</option><option>Diproses</option></select>
+        </div>
+        <div class="lb-stats"><span class="lb-si">Total: <b>8</b></span><span class="lb-si">Selesai: <b style="color:var(--teal)">6</b></span><span class="lb-si">Eskalasi: <b style="color:var(--gold)">1</b></span><span class="lb-si">Diproses: <b style="color:#1E40AF">1</b></span></div>
+        <div class="lb-tw"><table class="lb-t" id="t2">
+          <thead><tr><th>Tanggal</th><th>Tiket ID</th><th>Produk</th><th>Jenis Interaksi</th><th>Tindakan CS</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>10 Agt 2025</td><td>#PG-1041</td><td>Genshin Impact Account</td><td>Pembeli lapor tidak bisa login pasca serah-terima</td><td>Verifikasi kredensial, panduan re-login, cek aktivitas suspicious</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>10 Agt 2025</td><td>#PG-1042</td><td>HSR Monthly Pass</td><td>Pesanan masuk — verifikasi spesifikasi</td><td>Screening keamanan, verifikasi item, serah-terima ke pembeli</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>11 Agt 2025</td><td>#PG-1047</td><td>Genshin Resin Service</td><td>Komplain — progress tidak sesuai perjanjian</td><td>Cek log akun, klarifikasi scope ke pembeli</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>11 Agt 2025</td><td>#PG-1049</td><td>Wuthering Waves Account</td><td>Pembeli minta refund — berubah pikiran</td><td>Eskalasi ke manajemen, dokumentasi alasan, koordinasi finance</td><td><span class="st st-es">Eskalasi</span></td></tr>
+            <tr><td>12 Agt 2025</td><td>#PG-1055</td><td>HSR Exploration Service</td><td>Pembeli tanya status pengerjaan</td><td>Cek progress di sistem, kirim update screenshot ke pembeli</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>12 Agt 2025</td><td>#PG-1057</td><td>Genshin Impact Farming</td><td>Pesanan masuk — verifikasi spesifikasi</td><td>Screening akun, konfirmasi detail service, assign ke booster</td><td><span class="st st-pr">Diproses</span></td></tr>
+            <tr><td>13 Agt 2025</td><td>#PG-1062</td><td>Honkai Star Rail Account</td><td>Komplain — item salah dikirim</td><td>Verifikasi order detail, koordinasi booster, kirim item benar</td><td><span class="st st-ok">Selesai</span></td></tr>
+            <tr><td>13 Agt 2025</td><td>#PG-1065</td><td>Genshin Monthly Service</td><td>Renewal dari pelanggan lama</td><td>Konfirmasi preferensi, assign booster familiar, update ETA</td><td><span class="st st-ok">Selesai</span></td></tr>
+          </tbody>
+        </table><div class="lb-empty" id="e2">Tidak ada data yang sesuai.</div></div>
+        <div class="lb-ft">Format tiket The Pointgamers · Dikelola via Barantum &amp; Koala Plus CRM</div>
+      </div>
+    </div>
+    <div id="lb-epic" class="tab-pane">
+      <div class="lb-wrap">
+        <div class="lb-head"><div><div class="lb-head-title">Order Log — EpicNPC Freelance</div><div class="lb-head-sub">Agt 2021 – Okt 2023 · Full English · Zero dispute record</div></div><div class="lb-badge">Freelance</div></div>
+        <div class="lb-ctrl">
+          <input class="lb-search" type="text" placeholder="Search service, region..." oninput="filterLb('t3',this.value,document.getElementById('f3').value)">
+          <select id="f3" class="lb-sel" onchange="filterLb('t3',this.previousElementSibling.value,this.value)"><option value="">All Status</option><option>Completed</option></select>
+        </div>
+        <div class="lb-stats"><span class="lb-si">Total: <b>8</b></span><span class="lb-si">Completed: <b style="color:var(--teal)">8</b></span><span class="lb-si">Dispute: <b style="color:var(--teal)">0</b></span><span class="lb-si">Reviews: <b style="color:var(--gold)">35+</b></span></div>
+        <div class="lb-tw"><table class="lb-t" id="t3">
+          <thead><tr><th>Date</th><th>Order ID</th><th>Service</th><th>Client Region</th><th>Communication</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 2021</td><td>#EPC-001</td><td>Genshin Exploration 100%</td><td>USA</td><td>Price negotiation, ETA confirm, daily updates in English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Sep 2021</td><td>#EPC-008</td><td>Genshin Archon Quest</td><td>Europe (UK)</td><td>Scope clarification, daily progress screenshots in English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Dec 2021</td><td>#EPC-019</td><td>Genshin Account Leveling</td><td>USA</td><td>Client requested schedule adjustment — accommodated in English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Mar 2022</td><td>#EPC-034</td><td>Genshin Sumeru Exploration</td><td>SEA</td><td>Daily report, completion proof sent — full English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Aug 2022</td><td>#EPC-057</td><td>HSR Exploration + Quest</td><td>USA</td><td>New game onboarding, extra explanation provided in English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Jan 2023</td><td>#EPC-081</td><td>Genshin Inazuma 100%</td><td>Europe (DE)</td><td>Timezone coordination GMT+8 vs GMT+1 — managed in English</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Jun 2023</td><td>#EPC-097</td><td>Genshin Fontaine Exploration</td><td>USA</td><td>Client requested faster ETA — re-scheduled &amp; delivered on time</td><td><span class="st st-ok">Completed</span></td></tr>
+            <tr><td>Sep 2023</td><td>#EPC-104</td><td>Multi-game Monthly Maintenance</td><td>USA (Repeat)</td><td>Ongoing relationship, proactive daily updates in English</td><td><span class="st st-ok">Completed</span></td></tr>
+          </tbody>
+        </table><div class="lb-empty" id="e3">No matching records found.</div></div>
+        <div class="lb-ft">EpicNPC order log · Full review history: epicnpc.com/members/wiwiply.1688415</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="paklaring">
+  <div class="container">
+    <div class="sec-eye">Dokumen Resmi</div>
+    <div class="sec-title">Surat Keterangan Kerja terverifikasi</div>
+    <div class="pak-box">
+      <div class="pak-grid">
+        <div class="pak-l">
+          <div class="pak-lbl">Diterbitkan oleh</div>
+          <div class="pak-val">CV Point Gamers Indonesia<br><span style="font-size:11px;color:rgba(255,255,255,.4)">PT Point Digital Indonesia Group</span></div>
+          <div class="pak-lbl">Nomor Surat</div><div class="pak-val">SKK/005/VI/2026</div>
+          <div class="pak-lbl">Jabatan Tercatat</div><div class="pak-val">Admin Customer Service (Admin CS)</div>
+          <div class="pak-lbl">Periode Kerja</div><div class="pak-val">1 Juli 2025 – 31 Mei 2026</div>
+          <div class="pak-badge">✓ Dokumen Fisik Tersedia</div>
+        </div>
+        <div class="pak-r">
+          <div class="pak-lbl-d">Pernyataan dari HRD</div>
+          <div class="pak-q">"Selama bekerja, Iqmal Aprizal telah menunjukkan kinerja yang baik serta menjalankan tugas dan tanggung jawabnya dengan penuh profesional."</div>
+          <div class="pak-lbl-d" style="margin-top:12px">Ditandatangani oleh</div>
+          <div class="pak-val-d" style="margin-bottom:4px">Rafa Khairunisa</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:16px">HRD · CV Point Gamers Indonesia<br>Tangerang, 15 Juni 2026</div>
+          <div class="pak-note"><b>Catatan untuk HRD:</b> Dokumen fisik dengan tanda tangan asli tersedia untuk diverifikasi saat proses seleksi berlangsung.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="crm" class="crm-section">
+  <div class="container">
+    <div class="sec-eye">CRM yang Pernah Digunakan</div>
+    <div class="sec-title">Pengalaman dengan platform CRM profesional</div>
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-icon" style="background:rgba(29,158,117,.2)">📊</div>
+        <div class="crm-name">Mekari Qontak</div>
+        <div class="crm-role">CRM Utama</div>
+        <div class="crm-where">Toko Valorant · Okt 2023 – Apr 2026</div>
+        <div class="crm-desc">Platform omnichannel untuk tracking status order, manajemen antrian chat, dan eskalasi tiket komplain harian.</div>
+        <div class="crm-tags"><span class="crm-tag">Tiket Management</span><span class="crm-tag">Omnichannel</span><span class="crm-tag">SLA Tracking</span><span class="crm-tag">Reporting</span></div>
+      </div>
+      <div class="crm-card">
+        <div class="crm-icon" style="background:rgba(201,147,58,.2)">🔗</div>
+        <div class="crm-name">Barantum</div>
+        <div class="crm-role">CRM Utama</div>
+        <div class="crm-where">The Pointgamers · Jul 2025 – Mei 2026</div>
+        <div class="crm-desc">CRM lokal untuk pipeline tiket, tracking pesanan masuk, manajemen antrian CS, dan integrasi marketplace.</div>
+        <div class="crm-tags"><span class="crm-tag">Order Tracking</span><span class="crm-tag">Chat Queue</span><span class="crm-tag">Eskalasi Tiket</span><span class="crm-tag">Pipeline</span></div>
+      </div>
+      <div class="crm-card">
+        <div class="crm-icon" style="background:rgba(124,58,237,.2)">🐨</div>
+        <div class="crm-name">Koala Plus</div>
+        <div class="crm-role">CRM Pendamping</div>
+        <div class="crm-where">The Pointgamers · Jul 2025 – Mei 2026</div>
+        <div class="crm-desc">Platform CS multi-channel untuk assignment tiket ke agen, monitoring response time, dan data pelanggan terpusat.</div>
+        <div class="crm-tags"><span class="crm-tag">Multi-channel</span><span class="crm-tag">Agent Assignment</span><span class="crm-tag">Response Monitor</span><span class="crm-tag">Customer Data</span></div>
+      </div>
+    </div>
+    <div class="crm-cmp">
+      <div class="crm-cmp-h"><div>Fitur</div><div>Mekari Qontak</div><div>Barantum</div><div>Koala Plus</div></div>
+      <div class="crm-row"><div class="crm-feat">Manajemen Tiket</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div></div>
+      <div class="crm-row"><div class="crm-feat">Omnichannel (WA, IG, email)</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div></div>
+      <div class="crm-row"><div class="crm-feat">SLA &amp; Response Tracking</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-no">–</div><div class="crm-cell crm-yes">✓</div></div>
+      <div class="crm-row"><div class="crm-feat">Eskalasi Tiket</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-yes">✓</div></div>
+      <div class="crm-row"><div class="crm-feat">Laporan &amp; Analytics</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-no">–</div><div class="crm-cell crm-yes">✓</div></div>
+      <div class="crm-row"><div class="crm-feat">Integrasi Marketplace</div><div class="crm-cell crm-no">–</div><div class="crm-cell crm-yes">✓</div><div class="crm-cell crm-no">–</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="chat" class="chat-section">
+  <div class="container">
+    <div class="sec-eye">Korespondensi Nyata</div>
+    <div class="sec-title">Cara saya bekerja dengan klien</div>
+    <div class="chat-tab-bar">
+      <button class="chat-tab-btn active" onclick="switchCT('negosiasi',this)">💬 Negosiasi Harga</button>
+      <button class="chat-tab-btn" onclick="switchCT('komplain',this)">🔧 Penanganan Komplain</button>
+      <button class="chat-tab-btn" onclick="switchCT('relasi',this)">🤝 Relasi Jangka Panjang</button>
+      <button class="chat-tab-btn" onclick="switchCT('delivery',this)">✅ Konfirmasi Delivery</button>
+    </div>
+
+    <!-- TAB 1: NEGOSIASI -->
+    <div id="chat-negosiasi" class="chat-pane active">
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#2563EB">B</div><div><div class="chat-ttl">bobloblaw — Client USA</div><div class="chat-sub">Service inquiry &amp; price negotiation · Dec 2023</div></div></div>
+        <div class="chat-ctx">Klien dari Amerika menanyakan harga dua layanan sekaligus. Negosiasi, konfirmasi scope, dan deal selesai dalam satu sesi singkat.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">bobloblaw</div><div class="msg-bb">Hello. I'm looking to get some boosting done again. I would like to get a Fontaine fishing weapon Fleuve Cendre Ferryman r5 and the Archon quests for 4.1 completed. Can you tell me how much these 2 services will cost?</div><div class="msg-tm">28/12/2023 2:15</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">Hello sorry for the late, i was sleeping before. The archon per quest is 5$ while flueve r5 is 12$</div><div class="msg-tm">28/12/2023 5:42</div></div>
+          <div class="msg them"><div class="msg-bb">No problem I wasn't expecting you to answer right away. I'll do both services. So there are 2 archon quest acts in 4.1 so that's $10 for the quest and $12 for the weapon. $22 total?</div><div class="msg-tm">28/12/2023 5:49</div></div>
+          <div class="msg me"><div class="msg-bb">yes that is correct sir. Sure, i will love to work on it!</div><div class="msg-tm">28/12/2023 5:50</div></div>
+        </div>
+        <div class="chat-ft">Harga transparan → pembeli hitung sendiri → konfirmasi → deal dalam &lt;10 menit</div>
+      </div>
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#7C3AED">J</div><div><div class="chat-ttl">JasonS — Returning Client USA</div><div class="chat-sub">Discount request &amp; retention · Apr 2025</div></div></div>
+        <div class="chat-ctx">Klien returning meminta diskon $1 karena biaya PayPal. Dijawab fleksibel — kepercayaan tetap terjaga.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">JasonS</div><div class="msg-bb">Oh and uh if possible in the future can i get a $1 discount cause paypal taxes? Or is it a no</div><div class="msg-tm">01/04/2025 15:57</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">surely will — like most of my cust rn is just a returning customer, but im really in full of things these days as its eid day on indonesia and all of my booster were in full booked services</div><div class="msg-tm">01/04/2025 15:59</div></div>
+          <div class="msg me"><div class="msg-bb">yeah man no worries bout it</div><div class="msg-tm">01/04/2025 15:59</div></div>
+          <div class="msg them"><div class="msg-bb">Nice i know i can trust u</div><div class="msg-tm">01/04/2025 16:00</div></div>
+        </div>
+        <div class="chat-ft">Fleksibilitas harga → kepercayaan terjaga → klien tetap loyal</div>
+      </div>
+    </div>
+
+    <!-- TAB 2: KOMPLAIN -->
+    <div id="chat-komplain" class="chat-pane">
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#DC2626">K</div><div><div class="chat-ttl">Klien — Kendala Login Pasca Serah-terima</div><div class="chat-sub">Complaint handling · First Contact Resolution · 2025</div></div></div>
+        <div class="chat-ctx">Pembeli lapor tidak bisa login ke akun yang baru dibeli. Ditangani step-by-step tanpa eskalasi ke manajemen.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">Pembeli</div><div class="msg-bb">Halo kak, akun yang saya beli tadi tidak bisa di-login. Sudah saya coba beberapa kali tapi tetap gagal. Tolong dibantu.</div><div class="msg-tm">+0 menit</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">Halo kak, mohon maaf atas kendalanya. Bisa dicoba dulu: 1) Clear cache browser, 2) Coba di perangkat lain, 3) Pastikan email sesuai yang kami kirimkan.</div><div class="msg-tm">+5 menit</div></div>
+          <div class="msg them"><div class="msg-bb">Sudah saya coba kak tapi masih tidak bisa juga</div><div class="msg-tm">+8 menit</div></div>
+          <div class="msg me"><div class="msg-bb">Baik kak, kita coba reset via email recovery. Buka halaman login → klik "Forgot Password" → masukkan email akun. Bisa share screenshot error-nya ke saya juga?</div><div class="msg-tm">+10 menit</div></div>
+          <div class="msg them"><div class="msg-bb">Sudah berhasil kak! Terima kasih banyak!</div><div class="msg-tm">+25 menit</div></div>
+          <div class="msg me"><div class="msg-bb">Alhamdulillah! Senang bisa membantu kak. Kalau ada kendala lain jangan ragu hubungi kami ya 😊</div><div class="msg-tm">+26 menit</div></div>
+        </div>
+        <div class="chat-ft">Komplain login → FCR dalam &lt;30 menit, tanpa eskalasi</div>
+      </div>
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#C9933A">B</div><div><div class="chat-ttl">Bronson — Dispute Prevention</div><div class="chat-sub">Proactive communication · Jul 2025</div></div></div>
+        <div class="chat-ctx">Klien mengirim pembayaran tapi tim terlambat merespons. Ditangani cepat dan proaktif untuk mencegah dispute.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">Bronson</div><div class="msg-bb">sent hours ago i guess you didnt check</div><div class="msg-tm">21/07/2025 12:20</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">sorry! i didnt know youve sent the payment. its been late for a maintenance, would you like to adjust the time to tomorrow in our time?</div><div class="msg-tm">21/07/2025 12:20</div></div>
+          <div class="msg them"><div class="msg-bb">i already took care of todays so we can start on next reset</div><div class="msg-tm">21/07/2025 12:21</div></div>
+          <div class="msg me"><div class="msg-bb">alrighty i will tell the booster. oh we dont need to change booster, the old ones still can work on yours. i will update ticket soon — if you got another request you can talk in the tickets</div><div class="msg-tm">21/07/2025 12:23</div></div>
+          <div class="msg them"><div class="msg-bb">it's fine with me.</div><div class="msg-tm">21/07/2025 12:23</div></div>
+        </div>
+        <div class="chat-ft">Respons cepat saat keterlambatan → dispute dicegah → klien tetap puas</div>
+      </div>
+    </div>
+
+    <!-- TAB 3: RELASI -->
+    <div id="chat-relasi" class="chat-pane">
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#059669">J</div><div><div class="chat-ttl">JasonS — Long-term Client</div><div class="chat-sub">Kepercayaan dibangun dari konsistensi · Apr 2025</div></div></div>
+        <div class="chat-ctx">Klien yang sudah berulang kali pakai jasa mengekspresikan kepercayaannya secara eksplisit — bukti relasi jangka panjang yang sehat.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">JasonS</div><div class="msg-bb">Sounds good bro. Btw u need to update on epicnpc lol</div><div class="msg-tm">01/04/2025 15:57</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">surely will — like most of my cust rn is just a returning customer. im really in full of things these days as its eid day on indonesia</div><div class="msg-tm">01/04/2025 15:58</div></div>
+          <div class="msg me"><div class="msg-bb">i will send you updates in a day or couple days man, thanks for trusting me again</div><div class="msg-tm">01/04/2025 15:59</div></div>
+          <div class="msg them"><div class="msg-bb">Nice i know i can trust u</div><div class="msg-tm">01/04/2025 16:00</div></div>
+        </div>
+        <div class="chat-ft">Mayoritas pelanggan adalah returning client — bukti konsistensi kualitas layanan</div>
+      </div>
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#1D9E75">Z</div><div><div class="chat-ttl">ZapBranighan — 3 Accounts Maintenance</div><div class="chat-sub">High-value repeat client · Nov 2023</div></div></div>
+        <div class="chat-ctx">Klien memesan maintenance untuk 3 akun sekaligus dan memperpanjang kontrak setelah puas dengan kualitas layanan.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">ZapBranighan (review)</div><div class="msg-bb">I ordered maintenance and some exploration for 3 accounts and received great service again. They worked as a team and sent me screenshots every day.</div><div class="msg-tm">Nov 11, 2023</div></div>
+          <div class="msg them"><div class="msg-bb">As a bonus I just pulled Furina and they helped level her up for free since they had already finished maxing out my Yelan. I just extended monthly since I was very happy with their service.</div><div class="msg-tm">Nov 11, 2023</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">Thankyou so much! Looking forward to work on your future services please!</div><div class="msg-tm">Nov 11, 2023</div></div>
+        </div>
+        <div class="chat-ft">3 akun + daily screenshot update + bonus gratis → kontrak langsung diperpanjang</div>
+      </div>
+    </div>
+
+    <!-- TAB 4: DELIVERY -->
+    <div id="chat-delivery" class="chat-pane">
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#1D9E75">K</div><div><div class="chat-ttl">Klien — Konfirmasi Selesai + Bonus</div><div class="chat-sub">Over-delivery &amp; follow-up aktif · Feb 2025</div></div></div>
+        <div class="chat-ctx">Setelah menyelesaikan semua task, melakukan follow-up aktif dan memberikan bonus quest tanpa diminta — melebihi ekspektasi klien.</div>
+        <div class="chat-bd">
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">there you go, i think i finished all the task and did some quest as a bonus too for you 😄 kindly check everything and confirm the services, also if you have other jobs around HSR, Genshin, Wuwa etc you can find me 😄</div><div class="msg-tm">01/02/2025 17:34</div></div>
+          <div class="msg them"><div class="msg-sn">Klien</div><div class="msg-bb">Everything is complete! Thank you so much for your diligent service!! It was amazing! I'd be happy to come back next time. Please let me know if you'd like to write feedback on your post~</div><div class="msg-tm">02/02/2025 0:45</div></div>
+          <div class="msg me"><div class="msg-bb">Thankyou so much for trusting us!</div><div class="msg-tm">02/02/2025 8:54</div></div>
+        </div>
+        <div class="chat-ft">Deliveri melebihi ekspektasi → bonus quest gratis → klien langsung mau kembali</div>
+      </div>
+      <div class="chat-win">
+        <div class="chat-hd"><div class="chat-av" style="background:#7C3AED">R</div><div><div class="chat-ttl">Racundly — Stellar Service</div><div class="chat-sub">Post-service review &amp; extended contract · Jul 2023</div></div></div>
+        <div class="chat-ctx">Klien memberikan ulasan panjang yang sangat detail setelah layanan selesai dan langsung membeli layanan tambahan.</div>
+        <div class="chat-bd">
+          <div class="msg them"><div class="msg-sn">Racundly (review)</div><div class="msg-bb">Initially bought a 1month premium monthly maintenance. They were very flexible and accommodating for whenever I wished to log on.</div><div class="msg-tm">Jul 1, 2023</div></div>
+          <div class="msg them"><div class="msg-bb">They also clearly stated when they'd be on the account to avoid any login issues. The team responds quickly and professionally, completing everything as promised. I love their service and bought additional services. I highly recommend working with this team.</div><div class="msg-tm">Jul 1, 2023</div></div>
+          <div class="msg me"><div class="msg-sn">Iqmal</div><div class="msg-bb">Thanks!, i hope we can work again someday 😄</div><div class="msg-tm">Jul 5, 2023</div></div>
+        </div>
+        <div class="chat-ft">Transparansi jadwal + komunikasi profesional → klien beli layanan tambahan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="reviews" class="rv-section">
+  <div class="container">
+    <div class="sec-eye">Testimoni Terverifikasi</div>
+    <div class="sec-title">Apa kata klien internasional</div>
+    <div class="rv-filter">
+      <button class="rv-btn active" onclick="filterRv('all',this)">Semua (9)</button>
+      <button class="rv-btn" onclick="filterRv('trust',this)">Kepercayaan</button>
+      <button class="rv-btn" onclick="filterRv('speed',this)">Kecepatan</button>
+      <button class="rv-btn" onclick="filterRv('comm',this)">Komunikasi</button>
+    </div>
+    <div class="rv-grid">
+      <div class="rv-card" data-cat="trust comm"><div class="stars">★★★★★</div><div class="rv-txt">"100% Transparent and trustworthy service A++"</div><div class="rv-det">Did not betray any trust with login info. Very attentive and quick to respond. Would highly recommend to anyone that needs their gacha account worked on.</div><div class="rv-meta"><span class="rv-buyer">Codeblue3307</span><span class="rv-date">Jul 2024</span></div><span class="rv-cat">Kepercayaan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="trust speed comm"><div class="stars">★★★★★</div><div class="rv-txt">"Responsive top-rate boosting services with integrity"</div><div class="rv-det">Very kind and communicative. Did what was agreed as fast as possible while informing me of the progress every day. Would buy again!</div><div class="rv-meta"><span class="rv-buyer">Yusa</span><span class="rv-date">Nov 2023</span></div><span class="rv-cat">Kepercayaan · Kecepatan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="speed comm"><div class="stars">★★★★★</div><div class="rv-txt">"Amazing, fast and kind!"</div><div class="rv-det">So quick to respond, giving constant updates on the account. So friendly too. Highly recommend!</div><div class="rv-meta"><span class="rv-buyer">eriskim</span><span class="rv-date">May 2024</span></div><span class="rv-cat">Kecepatan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="trust comm"><div class="stars">★★★★★</div><div class="rv-txt">"Stellar Service"</div><div class="rv-det">Very flexible and accommodating. Clearly stated schedule to avoid login issues. Responds quickly and professionally. Highly recommend!</div><div class="rv-meta"><span class="rv-buyer">Racundly</span><span class="rv-date">Jul 2023</span></div><span class="rv-cat">Kepercayaan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="speed comm"><div class="stars">★★★★★</div><div class="rv-txt">"Super quick and communicative"</div><div class="rv-det">Responds super fast and gives multiple updates a day. Everything went smoothly and would recommend.</div><div class="rv-meta"><span class="rv-buyer">DDR1</span><span class="rv-date">Feb 2024</span></div><span class="rv-cat">Kecepatan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="trust comm"><div class="stars">★★★★★</div><div class="rv-txt">"Trustworthy and great services"</div><div class="rv-det">They give updates everyday on what they accomplished. If I ever need a service again I will come here again.</div><div class="rv-meta"><span class="rv-buyer">Qinx</span><span class="rv-date">Nov 2023</span></div><span class="rv-cat">Kepercayaan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="trust comm"><div class="stars">★★★★★</div><div class="rv-txt">"Great communication and very trustworthy!"</div><div class="rv-det">Finished quickly and completely, informed me on every step. Would recommend!</div><div class="rv-meta"><span class="rv-buyer">hamoodles00</span><span class="rv-date">Feb 2024</span></div><span class="rv-cat">Kepercayaan · Komunikasi</span></div>
+      <div class="rv-card" data-cat="trust speed"><div class="stars">★★★★★</div><div class="rv-txt">"Super nice seller! Very communicative, hard working, and professional! Would 100% buy again."</div><div class="rv-meta"><span class="rv-buyer">Froger123</span><span class="rv-date">May 2024</span></div><span class="rv-cat">Kepercayaan · Kecepatan</span></div>
+      <div class="rv-card" data-cat="speed comm"><div class="stars">★★★★★</div><div class="rv-txt">"Quick and responsive, keeps you up to date"</div><div class="rv-det">Responsive to changes, keeps you updated on progress. Entire process is quick and easy.</div><div class="rv-meta"><span class="rv-buyer">Saiz</span><span class="rv-date">Sep 2023</span></div><span class="rv-cat">Kecepatan · Komunikasi</span></div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-size:12px;color:rgba(255,255,255,.3)">Lihat semua ulasan → <a href="https://www.epicnpc.com/members/wiwiply.1688415/#feedback" target="_blank" style="color:var(--teal-m);text-decoration:none">profil EpicNPC ↗</a></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="skills">
+  <div class="container">
+    <div class="sec-eye">Kompetensi</div>
+    <div class="sec-title">Keahlian &amp; tools</div>
+    <div class="sk-grid">
+      <div class="sk-group"><div class="sk-title">CS &amp; Operasional</div><div class="sk-tags"><span class="sk-tag">High-Volume Chat</span><span class="sk-tag">First Contact Resolution</span><span class="sk-tag">De-escalation</span><span class="sk-tag">Complaint Handling</span><span class="sk-tag">Virtual Goods Security</span><span class="sk-tag">Order Processing</span></div></div>
+      <div class="sk-group"><div class="sk-title">CRM &amp; Tools</div><div class="sk-tags"><span class="sk-tag">Mekari Qontak</span><span class="sk-tag">Barantum</span><span class="sk-tag">Koala Plus</span><span class="sk-tag">Google Sheets</span><span class="sk-tag">MS Excel</span><span class="sk-tag">Discord</span></div></div>
+      <div class="sk-group"><div class="sk-title">Bahasa</div><div class="sk-tags"><span class="sk-tag">Indonesia — Native</span><span class="sk-tag">English — Professional Working</span></div></div>
+      <div class="sk-group"><div class="sk-title">Pendidikan</div><div class="sk-tags"><span class="sk-tag">S1 Pend. Bahasa Inggris</span><span class="sk-tag">UIN Raden Intan Lampung</span><span class="sk-tag">Bebas SKS · WFO Ready</span></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact" class="ct-section">
+  <div class="container">
+    <div class="sec-eye" style="color:var(--teal-m)">Kontak</div>
+    <div class="avail-badge"><div class="avail-dot"></div>Tersedia untuk posisi full-time (WFO)</div>
+    <div class="sec-title">Mari bekerja sama</div>
+    <p style="color:rgba(255,255,255,.45);font-size:14px;max-width:380px;margin:0 auto">Bandar Lampung, Indonesia — Terbuka untuk posisi CS, Operasional, atau peran terkait.</p>
+    <div class="ct-grid">
+      <a href="mailto:iqmalaprizal.work@gmail.com" class="btn btn-ct-p">Email Saya →</a>
+      <a href="https://wa.me/6282281307425" target="_blank" class="btn btn-ct-s">WhatsApp</a>
+      <a href="https://www.epicnpc.com/members/wiwiply.1688415/#feedback" target="_blank" class="btn btn-ct-s">EpicNPC</a>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:18px">iqmalaprizal.work@gmail.com · 0822-8130-7425</p>
+  </div>
+</section>
+
+<footer>&copy; 2026 Iqmal Aprizal · Customer Service &amp; Operations Portfolio</footer>
+
+<script>
+function switchTab(g,n,btn){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('[id^="lb-"]').forEach(p=>p.classList.remove('active'));document.getElementById('lb-'+n).classList.add('active')}
+function switchCT(n,btn){document.querySelectorAll('.chat-tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.chat-pane').forEach(p=>p.classList.remove('active'));document.getElementById('chat-'+n).classList.add('active')}
+function filterLb(tid,s,st){const t=document.getElementById(tid);if(!t)return;const rows=t.querySelectorAll('tbody tr');const q=s.toLowerCase();let v=0;rows.forEach(r=>{const txt=r.textContent.toLowerCase();const stCell=r.querySelector('.st')?r.querySelector('.st').textContent:'';const ok=(!q||txt.includes(q))&&(!st||stCell.includes(st));r.classList.toggle('hr',!ok);if(ok)v++});const eid=tid.replace('t','e');const el=document.getElementById(eid);if(el)el.style.display=v===0?'block':'none'}
+function filterRv(cat,btn){document.querySelectorAll('.rv-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.rv-card').forEach(c=>{const cats=c.getAttribute('data-cat')||'';c.classList.toggle('hidden',cat!=='all'&&!cats.includes(cat))})}
+const secs=document.querySelectorAll('section[id]');const nls=document.querySelectorAll('.nav-links a');window.addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-70)cur=s.id});nls.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)})},{passive:true});
+</script>
+</body>
+</html>
